@@ -176,5 +176,6 @@ Actualmente se han implementado 10 pruebas automatizadas para verificar:
 
 ## 12. Autores
 
-Proyecto desarrollado como parte de la asignatura Inteligencia Artificial II.
+- Dayana Michelle Pulido Moguea
+- Geyson Fabian Rodriguez Ortiz
 
