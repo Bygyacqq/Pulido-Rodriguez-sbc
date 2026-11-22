@@ -6,7 +6,9 @@ El Sistema Experto de Machine Learning es una aplicación desarrollada en Python
 
 El sistema utiliza una base de conocimiento compuesta por 15 reglas de producción y un motor de inferencia basado en encadenamiento hacia adelante (*Forward Chaining*), encargado de evaluar los hechos ingresados y generar recomendaciones.
 
-La aplicación cuenta con una interfaz gráfica desarrollada con Streamlit, que permite al usuario ingresar las características de su problema, consultar los modelos recomendados y conocer las razones que justifican cada recomendación.
+La aplicación cuenta con una interfaz web desarrollada con Streamlit, que permite al usuario ingresar las características de su problema, consultar los modelos recomendados y conocer las razones que justifican cada recomendación.
+
+**Aplicación desplegada:** https://sistema-experto-ia2.streamlit.app/
 
 ## 2. Objetivo general
 
@@ -14,7 +16,7 @@ Desarrollar un sistema experto que facilite la selección de modelos de Machine 
 
 ## 3. Tecnologías utilizadas
 
-- **Python:** lenguaje de programación utilizado para desarrollar la lógica del sistema.
+- **Python 3.13:** lenguaje de programación utilizado para desarrollar la lógica del sistema.
 - **Streamlit:** framework utilizado para construir la interfaz web.
 - **Pytest:** herramienta utilizada para ejecutar las pruebas automatizadas.
 - **Logging:** módulo utilizado para registrar eventos durante el proceso de inferencia.
@@ -32,12 +34,10 @@ Desarrollar un sistema experto que facilite la selección de modelos de Machine 
 
 ## 5. Modelos contemplados
 
-El sistema contempla los siguientes modelos y algoritmos:
-
 | Categoría | Modelos |
 |---|---|
-| Clasificación | Regresión Logística, Árbol de Decisión, Random Forest y Gradient Boosting |
-| Regresión | Regresión Lineal, Árbol de Decisión, Random Forest y Gradient Boosting |
+| Clasificación | Regresión logística, Árbol de decisión, Random Forest y Gradient Boosting |
+| Regresión | Regresión lineal, Árbol de decisión, Random Forest y Gradient Boosting |
 | Clustering | K-Means y DBSCAN |
 | Detección de anomalías | Isolation Forest y One-Class SVM |
 
@@ -46,73 +46,78 @@ El sistema contempla los siguientes modelos y algoritmos:
 ```text
 Sistema_Experto_IA2/
 │
+├── .streamlit/
+│   └── config.toml
+│
+├── docs/
+│   ├── documentacion_tecnica.md
+│   └── manual_usuario.md
+│
+├── notebooks/
+│   └── Sistema experto.ipynb
+│
 ├── src/
 │   ├── app.py
 │   ├── base_conocimiento.py
 │   ├── motor_inferencia.py
+│   ├── __init__.py
 │   └── pages/
 │       └── formulario.py
 │
-├── docs/
-|
-|── notebooks/
-|    |── Sistema experto.ipynb
-│
 ├── tests/
-│   └── test_motor_inferencia.py
+│   └── test_motor.py
 │
-├── .venv/
-│
+├── requirements.txt
 └── README.md
 ```
+
+Los entornos virtuales y las carpetas temporales no forman parte de los archivos necesarios para la distribución del código fuente.
 
 ## 7. Instalación y configuración
 
 ### 7.1. Requisitos previos
 
-- Python instalado.
-- Visual Studio Code o un editor de código.
+- Python 3.13 instalado.
+- Visual Studio Code u otro editor de código.
 - Acceso a una terminal de comandos.
+- Carpeta del proyecto disponible localmente.
 
 ### 7.2. Crear el entorno virtual
 
-Desde la carpeta principal del proyecto, ejecutar:
+Desde PowerShell, ubicado en la carpeta raíz del proyecto, ejecutar:
 
-```bash
-python -m venv .venv
+```powershell
+py -3.13 -m venv .venv313
 ```
 
 ### 7.3. Activar el entorno virtual
 
-En Windows PowerShell:
-
 ```powershell
-.\.venv\Scripts\Activate.ps1
+.\.venv313\Scripts\Activate.ps1
 ```
 
 ### 7.4. Instalar las dependencias
 
-Si el proyecto cuenta con un archivo `requirements.txt`, ejecutar:
-
-```bash
-pip install -r requirements.txt
-```
-
-También se pueden instalar las herramientas utilizadas para ejecutar la aplicación y las pruebas:
-
-```bash
-python -m pip install streamlit pytest
+```powershell
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 ```
 
 ## 8. Ejecución de la aplicación
 
-Desde la carpeta raíz del proyecto, ejecutar:
+Desde la carpeta raíz del proyecto, con el entorno virtual activado, ejecutar:
 
-```bash
-streamlit run src/app.py
+```powershell
+python -m streamlit run src/app.py
 ```
 
-Streamlit iniciará el servidor local y permitirá acceder a la aplicación desde el navegador.
+Streamlit iniciará el servidor local y mostrará una dirección para acceder a la aplicación desde el navegador.
+
+Para detener la ejecución, regresar a la terminal y presionar `Ctrl + C`.
+
+También se puede acceder a la versión desplegada mediante:
+
+https://sistema-experto-ia2.streamlit.app/
 
 ## 9. Base de conocimiento
 
@@ -126,7 +131,7 @@ Las reglas contemplan:
 - Selección de modelos para regresión.
 - Selección de algoritmos de clustering.
 - Selección de algoritmos para detección de anomalías.
-- Identificación de problemas relacionados con la disponibilidad de etiquetas.
+- Identificación de situaciones relacionadas con la disponibilidad de etiquetas.
 
 ## 10. Motor de inferencia
 
@@ -150,19 +155,19 @@ Además, dispone de las funciones `explicar_razonamiento()` y `porque()`, que pe
 Las pruebas automatizadas se encuentran en:
 
 ```text
-tests/test_motor_inferencia.py
+tests/test_motor.py
 ```
 
 Para ejecutarlas, utilizar:
 
-```bash
+```powershell
 python -m pytest tests/ -v
 ```
 
-Actualmente se han implementado 10 pruebas automatizadas para verificar:
+El proyecto cuenta con 10 pruebas automatizadas para verificar:
 
 1. La existencia de las 15 reglas de producción.
-2. La recomendación de Regresión Logística.
+2. La recomendación de regresión logística.
 3. La activación simultánea de múltiples reglas.
 4. El comportamiento cuando no se generan conclusiones.
 5. La advertencia por ausencia de datos etiquetados.
@@ -172,10 +177,22 @@ Actualmente se han implementado 10 pruebas automatizadas para verificar:
 9. El registro de eventos del motor de inferencia.
 10. El cumplimiento del límite máximo de iteraciones.
 
-**Resultado de validación:** las 10 pruebas automatizadas ejecutadas finalizaron satisfactoriamente.
+**Resultado de validación registrado:** las 10 pruebas automatizadas finalizaron satisfactoriamente (`10 passed`).
 
-## 12. Autores
+## 12. Alcance y limitaciones
 
-- Dayana Michelle Pulido Moguea
-- Geyson Fabian Rodriguez Ortiz
+El sistema utiliza reglas previamente definidas en una base de conocimiento. Por lo tanto, sus resultados están limitados a los modelos y combinaciones de condiciones representados en dichas reglas.
 
+La aplicación no entrena automáticamente los modelos, no compara su desempeño experimental y no garantiza que una recomendación sea la mejor para cualquier conjunto de datos.
+
+Los porcentajes del gráfico de rendimiento de la interfaz son demostrativos y no representan resultados de evaluaciones experimentales.
+
+Las recomendaciones deben considerarse un punto de partida para el análisis y la selección posterior del modelo.
+
+## 13. Autores
+
+Proyecto desarrollado como parte de la asignatura Inteligencia Artificial II.
+
+**Integrantes:** Dayana Michelle Pulido Moguea.
+
+**Institución:** Geyson Fabian Rodriguez Ortiz.
