@@ -9,7 +9,6 @@ El sistema utiliza una base de conocimiento compuesta por 15 reglas de producci�
 La aplicación cuenta con una interfaz web desarrollada con Streamlit, que permite al usuario ingresar las características de su problema, consultar los modelos recomendados y conocer las razones que justifican cada recomendación.
 
 **Aplicación desplegada:** https://uia3prj8pocurfuawnqcfs.streamlit.app/
-**Aplicación desplegada:** [https://sistema-experto-ia2.streamlit.app/](https://uia3prj8pocurfuawnqcfs.streamlit.app/)
 
 ## 2. Objetivo general
 
