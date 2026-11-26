@@ -8,6 +8,7 @@ El sistema utiliza una base de conocimiento compuesta por 15 reglas de producci�
 
 La aplicación cuenta con una interfaz web desarrollada con Streamlit, que permite al usuario ingresar las características de su problema, consultar los modelos recomendados y conocer las razones que justifican cada recomendación.
 
+**Aplicación desplegada:** https://uia3prj8pocurfuawnqcfs.streamlit.app/
 **Aplicación desplegada:** [https://sistema-experto-ia2.streamlit.app/](https://uia3prj8pocurfuawnqcfs.streamlit.app/)
 
 ## 2. Objetivo general
@@ -47,7 +48,7 @@ Desarrollar un sistema experto que facilite la selección de modelos de Machine 
 Sistema_Experto_IA2/
 │
 ├── .streamlit/
-│   └── config.toml
+│   └── config.toml          # Tema: colores, fuente y bordes
 │
 ├── docs/
 │   ├── documentacion_tecnica.md
@@ -57,16 +58,20 @@ Sistema_Experto_IA2/
 │   └── Sistema experto.ipynb
 │
 ├── src/
-│   ├── app.py
+│   ├── app.py               # Punto de entrada y menú de navegación
 │   ├── base_conocimiento.py
 │   ├── motor_inferencia.py
+│   ├── contenido.py         # Textos, diccionario y biblioteca de modelos
+│   ├── estilos.py           # CSS y tarjetas con explicación al pasar el cursor
 │   ├── __init__.py
-│   └── pages/
-│       └── formulario.py
+│   └── vistas/
+│       ├── diagnostico.py   # Página principal: formulario y resultados
+│       └── guia.py          # Guía, diccionario y biblioteca de modelos
 │
 ├── tests/
 │   └── test_motor.py
 │
+├── .gitignore
 ├── requirements.txt
 └── README.md
 ```
@@ -117,7 +122,7 @@ Para detener la ejecución, regresar a la terminal y presionar `Ctrl + C`.
 
 También se puede acceder a la versión desplegada mediante:
 
-https://sistema-experto-ia2.streamlit.app/
+https://uia3prj8pocurfuawnqcfs.streamlit.app/
 
 ## 9. Base de conocimiento
 

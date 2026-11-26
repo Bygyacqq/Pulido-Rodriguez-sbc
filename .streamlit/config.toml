@@ -1,0 +1,16 @@
+[theme]
+base = "dark"
+primaryColor = "#5BB8E8"
+backgroundColor = "#0F1A2B"
+secondaryBackgroundColor = "#172437"
+textColor = "#E4ECF7"
+borderColor = "#2A3B55"
+linkColor = "#7CC8F0"
+font = "Manrope:https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap, sans-serif"
+headingFont = "Manrope:https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap, sans-serif"
+baseRadius = "0.6rem"
+paddingTop = "2rem"
+chartCategoricalColors = ["#5BB8E8"]
+
+[client]
+toolbarMode = "minimal"
